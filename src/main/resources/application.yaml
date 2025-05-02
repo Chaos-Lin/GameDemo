@@ -3,9 +3,9 @@ server:
 
 spring:
   application:
-    name: lxc
+    name: gamedemo
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/lxc?useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://127.0.0.1:3306/game_demo?useSSL=false&serverTimezone=UTC
     username: root
     password: 1234
   redis:
