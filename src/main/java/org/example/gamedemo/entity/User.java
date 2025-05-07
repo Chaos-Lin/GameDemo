@@ -16,25 +16,62 @@
 
 package org.example.gamedemo.entity;
 
-public class User {
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@TableName("users")
+public class User implements Serializable {
 
     private String name;
 
     private Integer age;
 
-    public String getName() {
-        return name;
-    }
+    private static final long serialVersionUID = 1L;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+        /**
+         * 主键
+         */
+    @TableId(value = "user_id", type = IdType.AUTO)
+    private Long id;
 
-    public Integer getAge() {
-        return age;
-    }
+    /**
+     * 手机号码
+     */
+    private String phone;
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
+    /**
+     * 密码，加密存储
+     */
+    private String password;
+
+    /**
+     * 昵称，默认是随机字符
+     */
+    @TableId(value = "user_name")
+    private String nickName;
+
+    /**
+     * 用户头像
+     */
+    private String icon = "";
+
+    /**
+     * 创建时间
+     */
+    private LocalDateTime createTime;
+
+    /**
+     * 更新时间
+     */
+    private LocalDateTime updateTime;
 }

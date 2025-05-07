@@ -1,12 +1,12 @@
 use game_demo;
 CREATE TABLE `users` (
                          `user_id` INT NOT NULL AUTO_INCREMENT COMMENT '用户唯一标识',
-                         `username` VARCHAR(50) NOT NULL COMMENT '用户名',
+                         `user_name` VARCHAR(50) NOT NULL COMMENT '用户名',
                          `password` VARCHAR(100) NOT NULL COMMENT '用户密码（加密存储）',
                          `email` VARCHAR(100) NOT NULL COMMENT '用户邮箱',
                          `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '账号创建时间',
                          PRIMARY KEY (`user_id`),
-                         UNIQUE KEY `idx_username` (`username`),
+                         UNIQUE KEY `idx_username` (`user_name`),
                          UNIQUE KEY `idx_email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户表';
 
@@ -78,3 +78,8 @@ CREATE TABLE `note_comments` (
                                  CONSTRAINT `fk_comment_note` FOREIGN KEY (`note_id`) REFERENCES `notes` (`id`),
                                  CONSTRAINT `fk_comment_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='笔记评论表';
+
+-- 假设用户表名为 tb_user，新增一个名为 phone 的 VARCHAR(11) 类型的列，用于存储手机号
+ALTER TABLE users
+    ADD COLUMN phone VARCHAR(11) NULL COMMENT '用户手机号';
+

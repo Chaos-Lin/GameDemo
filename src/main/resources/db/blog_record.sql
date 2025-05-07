@@ -5,7 +5,7 @@ start transaction ;
 
 begin;
 -- 用户
-INSERT INTO `users` (`username`, `password`, `email`, `created_at`) VALUES
+INSERT INTO `users` (`user_name`, `password`, `email`, `created_at`) VALUES
                                                                         ('game_lover', '$2a$10$xJwL5v5zQ3V6Xp5Q7f8JZe', 'gamer@example.com', '2023-01-15 10:00:00'),
                                                                         ('pro_gamer', '$2a$10$yKv8H9wT2R5Wq3E4t5Y6Uu', 'pro@example.com', '2023-02-20 11:30:00'),
                                                                         ('rpg_fan', '$2a$10$zLx9N8v7B6M5Q4W3E2R1Tq', 'rpgfan@example.com', '2023-03-10 09:15:00'),
@@ -83,3 +83,6 @@ INSERT INTO `note_comments` (`note_id`, `user_id`, `content`, `created_at`) VALU
                                                                                 (5, 1, '第一年就能完成这么多？太厉害了', '2023-05-13 11:50:00');
 commit;
 
+UPDATE users
+SET phone = '18015267977'
+WHERE user_id = '3';
