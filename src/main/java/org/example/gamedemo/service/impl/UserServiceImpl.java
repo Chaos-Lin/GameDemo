@@ -16,15 +16,13 @@ import org.example.gamedemo.utils.RegexUtils;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import static org.example.gamedemo.utils.RedisConstants.*;
-import static org.example.gamedemo.utils.SystermConstants.USER_NICK_NAME_PREFIX;
+import static org.example.gamedemo.utils.SystemConstants.USER_NICK_NAME_PREFIX;
 
 @Slf4j
 @Service

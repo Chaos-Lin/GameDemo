@@ -18,4 +18,12 @@ public interface INoteService extends IService<Note> {
     Result updateNote(Note note);
 
     Result deleteById(Long id);
+
+    Result queryNoteOfFollow(Long max, Integer offset);
+
+    Result queryNoteOfHot(Long max, Integer offset);
+
+    Result queryNoteOfGame(Long max, Integer offset);
+
+    Result queryNoteOfLiked(Long max, Integer offset);
 }
